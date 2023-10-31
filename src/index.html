@@ -6,8 +6,18 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <h1>💖 Hello World!</h1>
-    <button id="btn-open-exe" onclick="onClick()">Open exe</button>
+    <form id="exe-form">
+      <label for="inputField">Enter path:</label>
+      <input
+        type="text"
+        id="exe-path"
+        name="exe-path"
+        required
+        value="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+      />
+      <br />
+      <input type="submit" value="Open" />
+    </form>
   </body>
   <script src="./renderer.js"></script>
 </html>
