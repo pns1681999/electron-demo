@@ -26,12 +26,12 @@ const createWindow = () => {
 
 const runPath = (executablePath) => {
   console.log('runPath', executablePath);
-  // var parameters = ['--incognito'];
+  var parameters = ['--incognito'];
 
-  // child(executablePath, parameters, function (err, data) {
-  //   console.log(err);
-  //   console.log(data.toString());
-  // });
+  child(executablePath, parameters, function (err, data) {
+    console.log(err);
+    console.log(data.toString());
+  });
 };
 
 // This method will be called when Electron has finished
@@ -39,7 +39,7 @@ const runPath = (executablePath) => {
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
   createWindow();
-  ipcMain.on('run-path', runPath);
+  ipcMain.on('run-path', (event, executablePath) => runPath(executablePath));
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
